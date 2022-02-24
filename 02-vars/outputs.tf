@@ -49,3 +49,7 @@ output "map_boolean" {
 output "new" {
   value = var.new
 }
+
+output "cli" {
+  value = var.cli
+}

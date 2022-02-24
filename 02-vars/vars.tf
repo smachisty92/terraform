@@ -28,4 +28,8 @@ variable "map" {
     }
 }
 
+#this is for tfvars
 variable "new" {}
+
+#this is for cli
+variable "cli" {}

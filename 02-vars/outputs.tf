@@ -37,3 +37,11 @@ output "list4" {
 output "map_string" {
   value = var.map["string"]
 }
+
+output "map_number" {
+  value = var.map["number"]
+}
+
+output "map_boolean" {
+  value = var.map["boolean"]
+}

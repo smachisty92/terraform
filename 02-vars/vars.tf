@@ -16,4 +16,6 @@ variable "sample4" {
   default = true
 }
 
-
+variable "list" {
+  default = ["hello", 100, true, "chisty"]
+}

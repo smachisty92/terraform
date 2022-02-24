@@ -17,3 +17,19 @@ output "sample3" {
 output "sample4" {
   value = var.sample4
 }
+
+output "list" {
+  value = var.list[0]
+}
+
+output "list" {
+  value = var.list[1]
+}
+
+output "list" {
+  value = var.list[2]
+}
+
+output "list" {
+  value = var.list[3]
+}

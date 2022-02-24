@@ -45,3 +45,7 @@ output "map_number" {
 output "map_boolean" {
   value = var.map["boolean"]
 }
+
+output "new" {
+  value = var.new
+}

@@ -27,3 +27,5 @@ variable "map" {
     boolean = true
     }
 }
+
+variable "new" {}

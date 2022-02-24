@@ -18,18 +18,18 @@ output "sample4" {
   value = var.sample4
 }
 
-output "list" {
+output "list1" {
   value = var.list[0]
 }
 
-output "list" {
+output "list2" {
   value = var.list[1]
 }
 
-output "list" {
+output "list3" {
   value = var.list[2]
 }
 
-output "list" {
+output "list4" {
   value = var.list[3]
 }

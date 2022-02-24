@@ -33,3 +33,7 @@ output "list3" {
 output "list4" {
   value = var.list[3]
 }
+
+output "map_string" {
+  value = var.map["string"]
+}

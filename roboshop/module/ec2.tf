@@ -20,8 +20,15 @@ resource "aws_spot_instance_request" "cheap_worker" {
   }
 }
 
+#this code is to add the instance name
 resource "aws_ec2_tag" "aws_ec2_tag" {
   resource_id = aws_spot_instance_request.cheap_worker.spot_instance_id
   key         = "Name"
   value       = var.COMPONENT
+}
+
+resource "aws_ec2_tag" "aws_monitor_tag" {
+  resource_id = aws_spot_instance_request.cheap_worker.spot_instance_id
+  key         = "Name"
+  value       = var.MONITOR
 }

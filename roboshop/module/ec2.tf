@@ -19,16 +19,16 @@ resource "aws_spot_instance_request" "cheap_worker" {
         Name = var.COMPONENT
   }
 # remote-exec means connect to the local
-  provisioner "remote-exec" {
-    connection {
-      host = self.private_ip
-      user = "root"
-      password = "DevOps321"
-    }
-    inline = [
-      "ansible-pull -U https://github.com/smachisty92/ansible roboshop-pull.yml -e COMPONENT=${var.COMPONENT} -e ENV=dev"
-    ]
-  }
+#  provisioner "remote-exec" {
+#    connection {
+#      host = self.private_ip
+#      user = "root"
+#      password = "DevOps321"
+#    }
+#    inline = [
+#      "ansible-pull -U https://github.com/smachisty92/ansible roboshop-pull.yml -e COMPONENT=${var.COMPONENT} -e ENV=dev"
+#    ]
+#  }
 }
 
 #this code is to add the instance name
@@ -42,4 +42,18 @@ resource "aws_ec2_tag" "aws_monitor_tag" {
   resource_id = aws_spot_instance_request.cheap_worker.spot_instance_id
   key         = "MONITOR"
   value       = var.MONITOR
+}
+
+#null_resource means nothing resource
+resource "null_resource" "ansible-apply" {
+  provisioner "remote-exec" {
+    connection {
+      host     = aws_spot_instance_request.cheap_worker.private_ip
+      user     = "root"
+      password = "DevOps321"
+    }
+    inline = [
+      "ansible-pull -U https://github.com/smachisty92/ansible roboshop-pull.yml -e COMPONENT=${var.COMPONENT} -e ENV=dev"
+    ]
+  }
 }

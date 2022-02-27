@@ -44,7 +44,7 @@ resource "aws_ec2_tag" "aws_monitor_tag" {
   value       = var.MONITOR
 }
 
-#null_resource means nothing resource
+#null_resource means nothing resource,
 resource "null_resource" "ansible-apply" {
   provisioner "remote-exec" {
     connection {

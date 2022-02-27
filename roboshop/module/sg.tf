@@ -28,6 +28,6 @@ resource "aws_security_group" "allow_app" {
   }
 
   tags = {
-    Name = "allow_tls"
+    Name = "allow_$(var.COMPONENT)"
   }
 }

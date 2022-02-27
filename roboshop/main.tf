@@ -13,9 +13,9 @@ module "payment" {
 module "shipping" {
   source = "./shipping"
 }
-module "mysql" {
-  source = "./mysql"
-}
+#module "mysql" {
+#  source = "./mysql"
+#}
 module "mongodb" {
   source = "./mongodb"
 }

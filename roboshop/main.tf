@@ -26,5 +26,5 @@ module "rabbitmq" {
   source = "./rabbitmq"
 }
 module "user" {
-  source = "./rabbitmq"
+  source = "./user"
 }

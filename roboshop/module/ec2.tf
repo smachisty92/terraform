@@ -29,6 +29,6 @@ resource "aws_ec2_tag" "aws_ec2_tag" {
 
 resource "aws_ec2_tag" "aws_monitor_tag" {
   resource_id = aws_spot_instance_request.cheap_worker.spot_instance_id
-  key         = "Name"
+  key         = "MONITOR"
   value       = var.MONITOR
 }

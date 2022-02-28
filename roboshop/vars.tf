@@ -1,16 +1,4 @@
 
-variable "COMPONENTS" {
-  default = ["cart", "catalogue", "frontend", "mongodb", "payment", "rabbitmq", "redis", "shipping", "user", "mysql"]
-}
-
-variable "PORTS" {
-  default = [8080,8080,80, 27017, 8080,5672, 6379, 8080, 808, 3306]
-}
-
-variable "MONITOR" {
-  default = ["yes", "yes", "yes", "no", "yes", "no", "no", "yes", "yes", "no"]
-}
-
 variable "COMP" {
   default = [
     {
@@ -22,6 +10,46 @@ variable "COMP" {
       name    = "catalogue"
       port    = 8080
       monitor = "yes"
+    },
+    {
+      name    = "cart"
+      port    = 8080
+      monitor = "yes"
+    },
+    {
+      name    = "user"
+      port    = 8080
+      monitor = "yes"
+    },
+    {
+      name    = "shipping"
+      port    = 8080
+      monitor = "yes"
+    },
+    {
+      name    = "payment"
+      port    = 8080
+      monitor = "yes"
+    },
+    {
+      name    = "mongodb"
+      port    = 27017
+      monitor = "no"
+    },
+    {
+      name    = "redis"
+      port    = 6379
+      monitor = "no"
+    },
+    {
+      name    = "rabbitmq"
+      port    = 5672
+      monitor = "no"
+    },
+    {
+      name    = "mysql"
+      port    = 3306
+      monitor = "no"
     }
   ]
 }

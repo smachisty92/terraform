@@ -1,5 +1,6 @@
 variable "COMP" {
   default = ["frontend","cart"]
+  type = set(string)
 }
 
 resource "null_resource" "null" {

@@ -29,6 +29,7 @@
 #  source = "./user"
 #}
 
+#
 module "roboshop" {
   count = length(var.COMP)
   source = "./module"

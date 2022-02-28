@@ -1,5 +1,3 @@
-#currently having issue with mysql
-
 
 variable "COMPONENTS" {
   default = ["cart", "catalogue", "frontend", "mongodb", "payment", "rabbitmq", "redis", "shipping", "user", "mysql"]
@@ -11,4 +9,19 @@ variable "PORTS" {
 
 variable "MONITOR" {
   default = ["yes", "yes", "yes", "no", "yes", "no", "no", "yes", "yes", "no"]
+}
+
+variable "COMP" {
+  default = [
+    {
+      name = "frontend"
+      port = 80
+      monitor = "yes"
+    },
+    {
+      name    = "catalogue"
+      port    = 8080
+      monitor = "yes"
+    }
+  ]
 }

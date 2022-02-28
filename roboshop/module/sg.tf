@@ -1,6 +1,6 @@
 resource "aws_security_group" "allow_app" {
-  name        = "allow_${var.COMPONENT}"
-  description = "Allow  inbound ${var.COMPONENT} Component"
+  name        = "allow_${var.COMPONENT["name"]}"
+  description = "Allow  inbound ${var.COMPONENT["name"]} Component"
 
   ingress {
     description      = "TLS from VPC"
@@ -12,8 +12,8 @@ resource "aws_security_group" "allow_app" {
 
   ingress {
     description      = "Cart App Port"
-    from_port        = var.PORT
-    to_port          = var.PORT
+    from_port        = var.COMPONENT["port"]
+    to_port          = var.COMPONENT["port"]
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
@@ -28,6 +28,6 @@ resource "aws_security_group" "allow_app" {
   }
 
   tags = {
-    Name = "allow_${var.COMPONENT}"
+    Name = "allow_${var.COMPONENT["name"]}"
   }
 }

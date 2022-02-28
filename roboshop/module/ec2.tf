@@ -16,7 +16,7 @@ resource "aws_spot_instance_request" "cheap_worker" {
   wait_for_fulfillment = true
 
   tags = {
-        Name = var.COMPONENT
+        Name = var.COMPONENT["name"]
   }
 # remote-exec means connect to the local
 #  provisioner "remote-exec" {
@@ -35,13 +35,13 @@ resource "aws_spot_instance_request" "cheap_worker" {
 resource "aws_ec2_tag" "aws_ec2_tag" {
   resource_id = aws_spot_instance_request.cheap_worker.spot_instance_id
   key         = "Name"
-  value       = var.COMPONENT
+  value       = var.COMPONENT["name"]
 }
 
 resource "aws_ec2_tag" "aws_monitor_tag" {
   resource_id = aws_spot_instance_request.cheap_worker.spot_instance_id
   key         = "MONITOR"
-  value       = var.MONITOR
+  value       = var.COMPONENT["monitor"]
 }
 
 #null_resource means nothing resource,
@@ -57,7 +57,7 @@ resource "null_resource" "ansible-apply" {
       password = "DevOps321"
     }
     inline = [
-      "ansible-pull -U https://github.com/smachisty92/ansible roboshop-pull.yml -e COMPONENT=${var.COMPONENT} -e ENV=dev"
+      "ansible-pull -U https://github.com/smachisty92/ansible roboshop-pull.yml -e COMPONENT=${var.COMPONENT["name"]} -e ENV=dev"
     ]
   }
 }

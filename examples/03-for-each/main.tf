@@ -9,6 +9,6 @@ resource "null_resource" "null" {
     abc = timestamp()
   }
   provisioner "local-exec" {
-    command= "Component Name = ${each.value}"
+    command= "echo Component Name = ${each.value}"
   }
 }

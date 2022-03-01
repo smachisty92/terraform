@@ -1,4 +1,4 @@
 hello:
 	echo Hello
 bye:
-	echo bye
+	terraform version
